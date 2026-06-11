@@ -17,6 +17,7 @@ public class SurvivalCommands implements ModInitializer {
         LOGGER.info("SurvivalCommands loaded!");
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+            BackCommand.register(dispatcher);
             SpawnCommand.register(dispatcher);
             HomeCommand.register(dispatcher);
             SetHomeCommand.register(dispatcher);

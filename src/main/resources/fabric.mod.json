@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "survivalcommands",
+  "version": "${version}",
+  "name": "Survival Commands",
+  "description": "Clean survival-friendly commands: /spawn, /home, /sethome, /follow, /menu",
+  "authors": ["SurvivalCmds"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.survivalcmds.SurvivalCommands"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric-api": "*",
+    "minecraft": "~1.20.1"
+  }
+}

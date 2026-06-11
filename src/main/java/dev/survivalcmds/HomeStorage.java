@@ -48,7 +48,7 @@ public class HomeStorage {
     private static void load() {
         if (dataFile == null || !dataFile.exists()) return;
         try {
-            NbtCompound root = NbtIo.read(dataFile.toPath());
+            NbtCompound root = NbtIo.read(dataFile);
             if (root == null) return;
             NbtCompound playersTag = root.getCompound("homes");
             for (String key : playersTag.getKeys()) {
@@ -77,7 +77,7 @@ public class HomeStorage {
                 playersTag.put(entry.getKey().toString(), e);
             }
             root.put("homes", playersTag);
-            NbtIo.write(root, dataFile.toPath());
+            NbtIo.write(root, dataFile);
         } catch (IOException e) {
             SurvivalCommands.LOGGER.error("Failed to save homes: {}", e.getMessage());
         }

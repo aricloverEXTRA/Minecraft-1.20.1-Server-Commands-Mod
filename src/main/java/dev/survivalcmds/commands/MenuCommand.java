@@ -29,6 +29,7 @@ public class MenuCommand {
         Msg.send(player, runLine  ("✦",  "/spawn",   "Teleport to world spawn",            "/spawn"));
         Msg.send(player, runLine  ("🧭", "/explore", "Random teleport ~1000 blocks away",  "/explore"));
         Msg.send(player, runLine  ("👥", "/follow",  "Teleport to another player",         "/follow"));
+        Msg.send(player, runLine  ("↩️", "/back",     "Return to your previous location",   "/back"));
         Msg.send(player, Msg.separator());
         Msg.send(player, Text.literal("  §8§oClick any command to run it!"));
 

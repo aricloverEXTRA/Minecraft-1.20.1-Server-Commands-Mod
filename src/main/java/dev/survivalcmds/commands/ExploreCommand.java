@@ -35,9 +35,12 @@ public class ExploreCommand {
 
         // Save current position for /back
         BackStorage.save(player);
+        
+        // Store origin position BEFORE teleporting
+        BlockPos origin = player.getBlockPos();
 
         // Try to find a safe surface landing spot
-        BlockPos dest = findSafeLanding(world, player.getBlockPos());
+        BlockPos dest = findSafeLanding(world, origin);
 
         if (dest == null) {
             Msg.err(player, "Couldn't find a safe landing spot. Try again!");
@@ -47,9 +50,10 @@ public class ExploreCommand {
         player.teleport(world, dest.getX() + 0.5, dest.getY(), dest.getZ() + 0.5,
                 player.getYaw(), player.getPitch());
 
+        // Calculate distance using original position, not current
         int dist = (int) Math.sqrt(
-                Math.pow(dest.getX() - player.getBlockX(), 2) +
-                Math.pow(dest.getZ() - player.getBlockZ(), 2));
+                Math.pow(dest.getX() - origin.getX(), 2) +
+                Math.pow(dest.getZ() - origin.getZ(), 2));
 
         Msg.ok(player, "§aExploring! Landed §e" + dist + " blocks §aaway. §8(" +
                 dest.getX() + ", " + dest.getY() + ", " + dest.getZ() + "§8)");
